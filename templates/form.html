@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Review Submission</title>
+</head>
+<body>
+    <h1>Submit Your Book Review</h1>
+    <form method="POST" action="/">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="bookTitle">Book Title:</label><br>
+        <select id="bookTitle" name="bookTitle" required>
+            {% for book in books %}
+            <option value="{{ book }}">{{ book }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="review">Review:</label><br>
+        <textarea id="review" name="review" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="rating">Rating:</label><br>
+        <select id="rating" name="rating" required>
+            {% for rating in ratings %}
+            <option value="{{ rating }}">{{ rating }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
